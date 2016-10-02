@@ -1,0 +1,64 @@
+\documentclass[letterpaper, 12pt]{article}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{indentfirst}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\DeclareSIUnit{\molar}{M}
+\title{CBE 140 Design Game}
+\author{Nick Dagan, Brian Lam, Myron Liu, Nick Lee}
+\date{September 30, 2016}
+\begin{document}
+\maketitle
+\vspace{-20pt}
+
+\section{Reactor Mass Balance Calculations}
+\subsection{Species Balance on Reactant, A}
+\begin{align*}
+	a &= i - o + g - c \\
+	0 &= q_{in}C_{0A} - q_{out}C_A - k C_A V \\
+	0 &= qC_{0A} - qC_A - k C_A V \\
+	C_A &= \frac{qC_{0A}}{q + kV} \\
+	C_A &= \frac{C_{0A}}{1+k\frac{V}{q}} \\
+\end{align*}
+
+\subsection{Species Balance on Product, D}
+\begin{align*}
+	a &= i - o + g - c \\
+	0 &= -q_{out}C_D + k C_A V \\
+	0 &= -qC_D + kV\frac{C_{0A}}{1+k\frac{V}{q}} \\
+	0 &= -qC_D + \frac{C_{0A}}{\frac{1}{kV}+\frac{1}{q}} \\
+	V &= \frac{q}{k}\left( \frac{C_D}{C_{0A} - C_D} \right)
+\end{align*}
+
+\section{Cost Analysis}
+\subsection{Determining the Optimal Conversion Ratio}
+\begin{align*}
+	Cost &= q(\Delta t)C_{0A}(Price_A) + V(Cost_{per\ V}) \\
+	Cost &= q(\Delta t)C_{0A}(Price_A) + \frac{q}{k}\left(\frac{C_D}{C_{0A} - C_D} \right)(Cost_{per\ V}) \\
+	\frac{Cost}{qC_D} &= \frac{C_{0A}(\Delta t)}{C_D}(Price_A) + \frac{1}{k}\left(\frac{1}{C_{0A} - C_D} \right)(Cost_{per\ V}) \\
+	\frac{Cost}{qC_D} &= \frac{\Delta t}{X}(Price_A) + \frac{1}{kC_{0A}(1 - X)} (Cost_{per\ V}) \\
+	\frac{d}{dX}\left[\frac{Cost}{qC_D}\right] &= -\frac{\Delta t}{X^2}(Price_A) + \frac{1}{kC_{0A}(1 - X)^2}(Cost_{per\ V}) \\
+	0 &= -\frac{\Delta t}{X^2}(Price_A) + \frac{1}{kC_{0A}(1 - X)^2}(Cost_{per\ V}) \\
+	X &= \sqrt{\frac{(\Delta t)(Price_A)}{\frac{(Cost_{per\ V})}{kC_{0A}} - (\Delta t)(Price_A)}} \\
+	Plugging\ in\ \Delta t &= \SI{5.04e5}{\minute},\ \
+	Price_A = \$\SI{0.28}{\per\mole},\ Cost_{per\ V} = \$\SI{47}{\per\liter}, \\
+	k = \SI{0.005}{\min}^{-1},&\ C_{0A} = \SI{0.20}{\mole\per\liter}: \\
+	\\
+	X &= 0.897 
+\end{align*}
+
+\section{Reactor Sizing}
+We will size the reactor to achieve the optimal (cost minimized) conversion ratio, X, when 10\% of the time-averaged projected market demand is reached.
+\begin{align*}
+	X = 
+\end{align*}
+
+	
+
+
+\end{document}
