@@ -9,6 +9,7 @@
 \usepackage{siunitx}
 \usepackage{amsmath}
 \DeclareSIUnit{\molar}{M}
+\DeclareSIUnit{\year}{yr}
 \title{CBE 140 Design Game}
 \author{Nick Dagan, Brian Lam, Myron Liu, Nick Lee}
 \date{September 30, 2016}
@@ -55,7 +56,19 @@
 \section{Reactor Sizing}
 We will size the reactor to achieve the optimal (cost minimized) conversion ratio, X, when 10\% of the time-averaged projected market demand is reached.
 \begin{align*}
-	X = 
+	\bar{D} &= \frac{\Sigma[D_1 \dots D_5]}{5} \\
+	\bar{D} &= \SI{3.12e7}{\mole\per\year}
+\end{align*}
+
+\begin{align*}
+	V &= \frac{1}{k}\frac{qC_D}{C_{0A} - XC_{0A}} \\
+	V &= \frac{qC_D}{kC_{0A}(1 - X)} \\
+	Plugging\ in\ k = \SI{0.005}{\min}^{-1},&\ \
+	C_{0A} = \SI{0.20}{\mole\per\liter},\ \
+	qC_D = \SI{3.12e6}{\mole\per\year},\ \
+	X = 0.897: \\
+	\\
+	V &= \SI{3.03e10}{\liter}
 \end{align*}
 
 	
