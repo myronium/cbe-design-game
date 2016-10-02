@@ -45,12 +45,15 @@
 	\frac{Cost}{qC_D} &= \frac{\Delta t}{X}(Price_A) + \frac{1}{kC_{0A}(1 - X)} (Cost_{per\ V}) \\
 	\frac{d}{dX}\left[\frac{Cost}{qC_D}\right] &= -\frac{\Delta t}{X^2}(Price_A) + \frac{1}{kC_{0A}(1 - X)^2}(Cost_{per\ V}) \\
 	0 &= -\frac{\Delta t}{X^2}(Price_A) + \frac{1}{kC_{0A}(1 - X)^2}(Cost_{per\ V}) \\
-	X &= \sqrt{\frac{(\Delta t)(Price_A)}{\frac{(Cost_{per\ V})}{kC_{0A}} + (\Delta t)(Price_A)}} \\
+	0 &= \frac{\alpha}{X^2} + \frac{\beta}{(1-X)^2},\quad \alpha = -\Delta t(Price_A),\quad \beta = \frac{Cost_{per V}}{kC_{0A}} \\
+	0 &= (\alpha+\beta)X^2 - (2\alpha)X + \alpha \\
 	Plugging\ in\ \Delta t &= \SI{5.04e5}{\minute},\ \
 	Price_A = \$\SI{0.28}{\per\mole},\ Cost_{per\ V} = \$\SI{47}{\per\liter}, \\
 	k = \SI{0.005}{\min}^{-1},&\ C_{0A} = \SI{0.20}{\mole\per\liter}: \\
 	\\
-	X &= 0.866 
+	\alpha &= -\$\SI{1.411e5}{\min\mole}^{-1}\quad \beta = \$\SI{4.70e4}{\min\mole}^{-1} \\
+	X &= \frac{2\alpha \pm \sqrt{(2\alpha)^2 - 4(\alpha + \beta)(\alpha)}}{2(\alpha + \beta)} \\
+	X &= 0.634 
 \end{align*}
 
 \section{Reactor Sizing (Work in progress)}
@@ -71,9 +74,9 @@ This amounts to a production rate, $qC_D$, of:
 	Plugging\ in\ k = \SI{0.005}{\min}^{-1},&\ \
 	C_{0A} = \SI{0.20}{\mole\per\liter},\ \
 	qC_D = \SI{6.19}{\mole\per\min},\ \
-	X = 0.866: \\
+	X = 0.634: \\
 	\\
-	V &= \SI{4.62e4}{\liter}
+	V &= \SI{1.69e4}{\liter}
 \end{align*}
 
 	
